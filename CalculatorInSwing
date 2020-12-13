@@ -1,0 +1,148 @@
+package calculatorinswing;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+class MyFrame extends JFrame implements ActionListener {
+    JTextField t1;
+    String ans;
+    JButton b2, b3, b4, b5, b6, b7, b8;
+    int i, j, k = 1;
+    String op = "";
+    int num1, num2, result;
+    MyFrame() {
+        JPanel p1 = new JPanel();
+        FlowLayout f1 = new FlowLayout();
+        setLayout(f1);
+        p1.setLayout(f1);
+        t1 = new JTextField("                                      ");
+        p1.add(t1);
+        add(p1);
+        JPanel p2 = new JPanel();
+        GridLayout g1 = new GridLayout(4, 4);
+        setLayout(g1);
+        p2.setLayout(g1);
+        add(p2);
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                JButton b1 = new JButton("" + k);
+                p2.add(b1);
+                b1.addActionListener(this);
+                k++;
+            }
+        }
+        b2 = new JButton("" + 0);
+        p2.add(b2);
+        b3 = new JButton("C");
+        p2.add(b3);
+        b4 = new JButton("=");
+        p2.add(b4);
+        b5 = new JButton("+");
+        p2.add(b5);
+        b6 = new JButton("-");
+        p2.add(b6);
+        b7 = new JButton("*");
+        p2.add(b7);
+        b8 = new JButton("/");
+        p2.add(b8);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int n2;
+        String n = e.getActionCommand();
+        String n1 = t1.getText();
+        switch (n) {
+            case "0":
+                t1.setText(n1 + "0");               
+                break;
+            case "1":
+                t1.setText(n1 + "1");
+                break;
+            case "2":
+                t1.setText(n1 + "2");
+                break;
+            case "3":
+                t1.setText(n1 + "3");
+                break;
+            case "4":
+                t1.setText(n1 + "4");
+                break;
+            case "5":
+                t1.setText(n1 + "5");
+                break;
+            case "6":
+                t1.setText(n1 + "6");
+                break;
+            case "7":
+                t1.setText(n1 + "7");
+                break;
+            case "8":
+                t1.setText(n1 + "8");
+                break;
+            case "9":
+                t1.setText(n1 + "9");
+                break;
+            case "C":
+                t1.setText("");
+                num1=0;
+                num2=0;
+                result=0;
+                break;
+            case "+":
+                op = "+";
+                num1 = Integer.parseInt(t1.getText().trim());
+                t1.setText("");
+                break;
+            case "-":
+                op = "-";
+                num1 = Integer.parseInt(t1.getText().trim());
+                t1.setText("");
+                break;
+            case "*":
+                op = "*";
+                num1 = Integer.parseInt(t1.getText().trim());
+                t1.setText("");
+                break;
+            case "/":
+                op = "/";
+                num1 = Integer.parseInt(t1.getText().trim());
+                t1.setText("");
+                break;
+            case "=":
+                num2 = Integer.parseInt(t1.getText().trim());
+                if (op.equals("+")) {
+                    result = num1 + num2;
+                    t1.setText("" + result);
+                }
+                if (op.equals("-")) {
+                    result = num1 - num2;
+                    t1.setText("" + result);
+                }
+                if (op.equals("*")) {
+                    result = num1 * num2;
+                    t1.setText("" + result);
+                }
+                if (op.equals("/")) {
+                    result = num1 / num2;
+                    t1.setText("" + result);
+                }
+                break;
+        }
+    }
+}
+public class CalculatorInSwing {
+    public static void main(String[] args) {
+        MyFrame f = new MyFrame();
+        f.setTitle("Calculator");
+        f.setVisible(true);
+        f.setSize(400, 400);
+    }
+}
