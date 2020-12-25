@@ -18,7 +18,7 @@ public class DictionaryClass {
         for (String value : values) {
             System.out.println(value);
         }
-        d1.remove("D");
+        d1.remove(3);
         System.out.println(d1);
     }       
 }    
