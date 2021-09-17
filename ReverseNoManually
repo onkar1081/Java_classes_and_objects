@@ -1,0 +1,18 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+    int n,rev_integer=0,remainder,ori_integer;
+    System.out.println("Enter number");
+    Scanner s=new Scanner(System.in);
+    n=s.nextInt();
+    ori_integer=n;
+    while(n!=0)
+    {
+        remainder=n%10;
+        rev_integer=rev_integer*10+remainder;
+        n=n/10;
+    }
+    System.out.println(rev_integer);
+}
+}
