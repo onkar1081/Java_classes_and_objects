@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main
+{
+  public static void main (String[]args)
+  {
+    Scanner s = new Scanner (System.in);
+    System.out.println ("Enter size");
+    int n = s.nextInt ();
+    ArrayList < Integer > arr = new ArrayList < Integer > (n);
+    System.out.println ("Enter elements");
+    int num;
+    for (int i = 0; i < n; i++)
+    {
+	    num = s.nextInt ();
+	    arr.add (num);
+    }
+    Collections.sort (arr);
+    System.out.println ("After sorting");
+    for (int i = 0; i < n; i++)
+    {
+	    System.out.println (arr.get (i));
+    }
+}
+}
